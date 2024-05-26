@@ -12,6 +12,10 @@
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ __('A new verification link has been sent to the email address you provided in your profile settings.') }}
             </div>
+        @elseif (session('resent'))
+            <div class="alert alert-success" role="alert">
+                {{ __('A fresh verification link has been sent to your email address.') }}
+            </div>
         @endif
 
         <div class="mt-4 flex items-center justify-between">
@@ -26,11 +30,9 @@
             </form>
 
             <div>
-                <a
-                    href="{{ route('profile.show') }}"
-                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                >
-                    {{ __('Edit Profile') }}</a>
+                <a href="{{ route('profile.show') }}" class="underline text-sm text-gray-600 hover:text-gray-900">
+                    {{ __('Edit Profile') }}
+                </a>
 
                 <form method="POST" action="{{ route('logout') }}" class="inline">
                     @csrf
@@ -40,6 +42,10 @@
                     </button>
                 </form>
             </div>
+        </div>
+
+        <div class="text-center text-muted mt-4">
+            <small>{{ __('If you did not receive the email,') }} <a href="{{ route('verification.resend') }}" class="underline text-gray-600 hover:text-gray-900">{{ __('click here to request another') }}</a></small>
         </div>
     </x-jet-authentication-card>
 </x-guest-layout>
