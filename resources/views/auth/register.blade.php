@@ -6,6 +6,24 @@
 
         <x-jet-validation-errors class="mb-4" />
 
+        <div class="text-center mt-2 mb-4">
+            <small>{{ __('Sign up with') }}</small>
+        </div>
+        <div class="text-center mb-4">
+            <a href="#" class="btn btn-neutral btn-icon mr-4">
+                <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/github.svg"></span>
+                <span class="btn-inner--text">{{ __('Github') }}</span>
+            </a>
+            <a href="#" class="btn btn-neutral btn-icon">
+                <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/google.svg"></span>
+                <span class="btn-inner--text">{{ __('Google') }}</span>
+            </a>
+        </div>
+
+        <div class="text-center text-muted mb-4">
+            <small>{{ __('Or sign up with credentials') }}</small>
+        </div>
+
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

@@ -12,11 +12,33 @@
             </div>
         @endif
 
+        <div class="text-center mt-2 mb-3">
+            <small>{{ __('Sign in with') }}</small>
+        </div>
+        <div class="btn-wrapper text-center mb-4">
+            <a href="#" class="btn btn-neutral btn-icon">
+                <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/github.svg"></span>
+                <span class="btn-inner--text">{{ __('Github') }}</span>
+            </a>
+            <a href="#" class="btn btn-neutral btn-icon">
+                <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/google.svg"></span>
+                <span class="btn-inner--text">{{ __('Google') }}</span>
+            </a>
+        </div>
+
+        <div class="text-center text-muted mb-4">
+            <small>
+                Create new account OR Sign in with these credentials:
+                <br>
+                Username <strong>admin@argon.com</strong> Password: <strong>secret</strong>
+            </small>
+        </div>
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
-                <x-jet-label for="auth" value="{{ __('Username/email') }}" />
+                <x-jet-label for="auth" value="{{ __('Username/Email') }}" />
                 <x-jet-input id="auth" class="block mt-1 w-full" type="text" name="auth" :value="old('auth')" required autofocus />
             </div>
 
@@ -44,5 +66,20 @@
                 </x-jet-button>
             </div>
         </form>
+
+        <div class="row mt-3">
+            <div class="col-6">
+                @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}" class="text-light">
+                        <small>{{ __('Forgot password?') }}</small>
+                    </a>
+                @endif
+            </div>
+            <div class="col-6 text-right">
+                <a href="{{ route('register') }}" class="text-light">
+                    <small>{{ __('Create new account') }}</small>
+                </a>
+            </div>
+        </div>
     </x-jet-authentication-card>
 </x-guest-layout>
