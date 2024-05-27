@@ -8,28 +8,25 @@
     <div class="py-12 items-center">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
            <div class="mb-10">
-                <a href="{{ route('petugas.perikanan.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-                    + Tambah Produksi
+                <!-- Link to add a new fish category -->
+                <a href="{{ route('tambah.ikan') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
+                    + Tambah Kategori Ikan
                 </a>
            </div>
            <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 bg-white sm:p-6">
-                    <table id="crudTable" class="text-center">
+                    <!-- Table to display fish data -->
+                    <table id="ikanTable" class="text-center">
                         <thead>
                             <tr>
-                                <th>Id Produksi</th>
-                                <th>Id Ikan</th>
-                                <th>Jumlah Produksi</th>
-                                <th>Tanggal Produksi</th>
-                                <th>Lokasi Produksi</th>
-                                <th>Harga Ikan</th>
-                                <th>Pengola Produksi</th>
-                                <th>Status Produksi</th>
-                                <th>Aksi</th>
+                                <th>ID Ikan</th>
+                                <th>Nama Ikan</th>
+                                <th>Deskripsi</th>
+                                <th>ID Kategori</th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            <!-- Table rows will be populated dynamically -->
                         </tbody>
                     </table>
                 </div>
@@ -39,20 +36,15 @@
 
     <x-slot name="script">
         <script>
-            var dataTable = $('#crudTable').DataTable({
+            var dataTable = $('#ikanTable').DataTable({
                 ajax: {
                     url: '{!! url()->current() !!}'
                 },
                 columns: [
-                    { data: "ID_Produksi", name: "ID_Produksi" },
                     { data: "ID_Ikan", name: "ID_Ikan" },
-                    { data: "Jumlah_Produksi", name: "Jumlah_Produksi" },
-                    { data: "Tanggal_Produksi", name: "Tanggal_Produksi" },
-                    { data: "Lokasi_Produksi", name: "Lokasi_Produksi" },
-                    { data: "Harga_Ikan", name: "Harga_Ikan" },
-                    { data: "Pengola_Produksi", name: "Pengola_Produksi" },
-                    { data: "Status_Produksi", name: "Status_Produksi" },
-                    { data: "action", name: "action", orderable: false, searchable: false, width: '25%' },
+                    { data: "Nama_Ikan", name: "Nama_Ikan" },
+                    { data: "Deskripsi", name: "Deskripsi" },
+                    { data: "ID_Kategori", name: "ID_Kategori" },
                 ]
             });
         </script>
