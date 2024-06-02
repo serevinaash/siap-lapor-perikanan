@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController};
-use App\Models\Transaction;
+use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController, ProduksiController};
+use App\Http\Controllers\IkanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,26 +30,22 @@ Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('das
 
 Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petugas')->group(function () {
     Route::get('/', [PetugasController::class, 'index'])->name('index');
-
+ 
     Route::middleware(["petugas"])->group(function () {
-        Route::resource('perikanan', PerikananController::class);
-        Route::resource('perikanan.gallery', PerikananGalleryController::class)->shallow()->only(
+        Route::resource('perikanan', IkanController::class)->only([
             'index',
             'create',
             'store',
-            'destroy'
-        );
-        Route::resource('ikan', PerikananGalleryController::class)->shallow()->only(
+            'update',
+            'edit',
+            'destroy',
+        ]);     
+        Route::resource('ikan', IkanController::class);
+        Route::resource('produksi', ProduksiController::class)->only([
             'index',
-            'create',
-            'store',
-            'destroy'
-        );
-        Route::resource('kategori-ikan', KategoriIkanController::class)->only(
-            'index',    // Display a listing of the resource
-            'create',   // Show the form for creating a new resource
-            'store',    // Store a newly created resource in storage
-            'destroy'   // Remove the specified resource from storage
-        );
+        ]); 
+        Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');
+        
+
     });
 });

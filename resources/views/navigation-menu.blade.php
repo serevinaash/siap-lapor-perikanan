@@ -25,6 +25,9 @@
                         <x-jet-nav-link href="{{ route('petugas.perikanan.index') }}" :active="request()->routeIs('petugas.perikanan.index')">
                             {{ __('Perikanan') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
+                             {{ __('Produksi Perikanan') }}
+                         </x-jet-nav-link>
                     @endif
 
                 </div>
@@ -164,6 +167,9 @@
        @if(Auth::user()->roles == 'PETUGAS')
             <x-jet-nav-link href="{{ route('petugas.perikanan.index') }}" :active="request()->routeIs('petugas.perikanan.index')">
              {{ __('Perikanan') }}
+            </x-jet-nav-link>
+            <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
+             {{ __('Produksi Perikanan') }}
             </x-jet-nav-link>
         @endif
 

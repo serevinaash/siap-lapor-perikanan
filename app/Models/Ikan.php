@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Ikan extends Model
 {
-    use HasFactory;
-
-    // Define the table name if it's different from the pluralized form of the model name
     protected $table = 'ikan';
+    protected $primaryKey = 'ID_Ikan';
+    public $timestamps = false; // if you don't use timestamps
 
-    // Define the fillable fields
-    protected $fillable = ['Nama_Ikan'];
+    protected $fillable = [
+        'Nama_Ikan', 'Deskripsi', 'Kategori_Ikan',
+    ];
 }
