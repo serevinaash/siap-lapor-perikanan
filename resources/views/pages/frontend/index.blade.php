@@ -1,5 +1,6 @@
 @extends("layouts.frontend")
 @section("content")
+
 <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-8 mb-5 mb-xl-0">
@@ -28,6 +29,14 @@
                             </div>
                         </div>
                     </div>
+                    <pre>{{ print_r($categories) }}</pre>
+                    <pre>{{ print_r($values) }}</pre>
+
+    <div style="width: 600px; margin: auto; padding: 50px;">
+        <canvas id="kategoriIkanChart"></canvas>
+    </div>
+
+
                     <div class="card-body">
                         <!-- Chart -->
                         <div class="chart">

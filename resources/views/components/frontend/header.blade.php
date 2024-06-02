@@ -42,6 +42,8 @@
     <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/638/original/opt_ad_laravel_thumbnail.jpg?1651243728" />
     <meta property="og:description" content="Start your development with a Dashboard for Bootstrap 4." />
     <meta property="og:site_name" content="Creative Tim" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     <script>
