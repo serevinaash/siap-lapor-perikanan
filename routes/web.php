@@ -39,5 +39,17 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'store',
             'destroy'
         );
+        Route::resource('ikan', PerikananGalleryController::class)->shallow()->only(
+            'index',
+            'create',
+            'store',
+            'destroy'
+        );
+        Route::resource('kategori-ikan', KategoriIkanController::class)->only(
+            'index',    // Display a listing of the resource
+            'create',   // Show the form for creating a new resource
+            'store',    // Store a newly created resource in storage
+            'destroy'   // Remove the specified resource from storage
+        );
     });
 });
