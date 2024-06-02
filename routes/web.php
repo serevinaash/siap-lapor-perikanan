@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController};
+use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController, KategoriIkanChartController};
 use App\Models\Transaction;
 
 /*
@@ -16,7 +16,7 @@ use App\Models\Transaction;
 */
 Route::get('/', [FrontendController::class, "index"])->name("index");
 
-
+Route::get('/kategori-ikan-chart', [KategoriIkanChartController::class, 'index']); // Tambahkan route baru di sini
 
 Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
