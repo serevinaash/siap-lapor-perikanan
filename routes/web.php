@@ -41,6 +41,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'destroy',
         ]);     
         Route::resource('ikan', IkanController::class);
+     
         Route::resource('produksi', ProduksiController::class)->only([
             'index',
         ]); 

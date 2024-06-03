@@ -12,10 +12,16 @@ module.exports = {
         "./resources/**/*.vue",
     ],
 
+    
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                yellow: {
+                    700: '#b59f3b', // Warna kuning yang diinginkan
+                },
             },
         },
     },

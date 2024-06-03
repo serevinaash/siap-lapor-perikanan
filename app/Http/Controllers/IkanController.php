@@ -28,6 +28,9 @@ class IkanController extends Controller
                             Hapus
                         </button>
                     </form>
+                         <button type="submit" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">
+                             Create Laporan
+                          </button>
                     ';
                 })
                 ->rawColumns(['action'])
