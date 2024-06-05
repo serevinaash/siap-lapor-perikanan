@@ -25,11 +25,11 @@
                         <x-jet-nav-link href="{{ route('petugas.perikanan.index') }}" :active="request()->routeIs('petugas.perikanan.index')">
                             {{ __('Perikanan') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('petugas.dataproduksi.index') }}" :active="request()->routeIs('petugas.dataproduksi.index')">
+                             {{ __('Data Produksi') }}
+                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
                              {{ __('Produksi Perikanan') }}
-                         </x-jet-nav-link>
-                         <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
-                             {{ __('Data Produksi') }}
                          </x-jet-nav-link>
                     @endif
 
@@ -170,12 +170,12 @@
        @if(Auth::user()->roles == 'PETUGAS')
             <x-jet-nav-link href="{{ route('petugas.perikanan.index') }}" :active="request()->routeIs('petugas.perikanan.index')">
              {{ __('Perikanan') }}
+            </x-jet-nav-link>   
+            <x-jet-nav-link href="{{ route('petugas.dataproduksi.index') }}" :active="request()->routeIs('petugas.dataproduksi.index')">
+            {{ __('Data Produksi') }}
             </x-jet-nav-link>
             <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
              {{ __('Produksi Perikanan') }}
-            </x-jet-nav-link>
-            <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
-                             {{ __('Data Produksi') }}
             </x-jet-nav-link>
         @endif
 

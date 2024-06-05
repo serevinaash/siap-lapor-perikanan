@@ -88,4 +88,5 @@ class IkanController extends Controller
 
         return redirect()->route('petugas.ikan.index')->with('success', 'Ikan deleted successfully.');
     }
+    
 }

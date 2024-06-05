@@ -13,12 +13,12 @@
                         <thead>
                             <tr>
                                 <th>ID Produksi</th>
-                                <th>Nama Ikan</th>
                                 <th>Jumlah Produksi</th>
                                 <th>Tanggal Produksi</th>
                                 <th>Lokasi Produksi</th>
                                 <th>Harga Ikan</th>
-                                <th>Status Produksi</th>     
+                                <th>Status Produksi</th> 
+                                <th>Aksi</th>    
                             </tr>
                         </thead>
                         <tbody>
@@ -33,16 +33,16 @@
         <script>
             var dataTable = $('#crudTable').DataTable({
                 ajax: {
-                    url: '{!! route('petugas.produksi.index') !!}'
+                    url: '{!! route('petugas.dataproduksi.index') !!}'
                 },
                 columns: [
                     {data: 'ID_Produksi', name: 'ID_Produksi'},
-                    {data: 'Nama_Ikan', name: 'Nama_Ikan'},
                     {data: 'Jumlah_Produksi', name: 'Jumlah_Produksi'},
                     {data: 'Tanggal_Produksi', name: 'Tanggal_Produksi'},
                     {data: 'Lokasi_Produksi', name: 'Lokasi_Produksi'},
                     {data: 'Harga_Ikan', name: 'Harga_Ikan'},
                     {data: 'Status_Produksi', name: 'Status_Produksi'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false, width: '25%'},      
                 ]
             });
         </script>
