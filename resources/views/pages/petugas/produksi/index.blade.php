@@ -12,7 +12,7 @@
                     <table id="crudTable" class="text-center w-full">
                         <thead>
                             <tr>
-                                <th>ID Produksi</th>
+                                <th>No.</th>
                                 <th>Nama Ikan</th>
                                 <th>Jumlah Produksi</th>
                                 <th>Tanggal Produksi</th>
@@ -20,7 +20,6 @@
                                 <th>Harga Ikan</th>
                                 <th>Pengola Produksi</th>
                                 <th>Status Produksi</th>
-                             
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +37,11 @@
                     url: '{!! route('petugas.produksi.index') !!}'
                 },
                 columns: [
-                    {data: 'ID_Produksi', name: 'ID_Produksi'},
+                    {data: null, name: 'No.', searchable: false, sortable: false,
+                        render: function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
                     {data: 'Nama_Ikan', name: 'Nama_Ikan'},
                     {data: 'Jumlah_Produksi', name: 'Jumlah_Produksi'},
                     {data: 'Tanggal_Produksi', name: 'Tanggal_Produksi'},
@@ -51,4 +54,3 @@
         </script>
     </x-slot>
 </x-app-layout>
-             

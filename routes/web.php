@@ -79,6 +79,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'destroy',
         ]); 
         Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
+        Route::get('/dataproduksi/{dataproduksi}/edit', [DataProduksiController::class, 'edit'])->name('dataproduksi.edit');
 
 
     });
