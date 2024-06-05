@@ -38,3 +38,4 @@ class DashboardUserController extends Controller
 
     // Additional methods from UserController can be added here as needed
 }
+    

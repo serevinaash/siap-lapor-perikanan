@@ -1,3 +1,5 @@
+
+
 <!-- START: HEADER -->
 <header class="{{\Route::current()->getName() === "index" ? "absolute" : ""}} w-full z-50 px-4">
     <div class="container mx-auto py-5">
