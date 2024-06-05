@@ -28,6 +28,9 @@
                         <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
                              {{ __('Produksi Perikanan') }}
                          </x-jet-nav-link>
+                         <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
+                             {{ __('Data Produksi') }}
+                         </x-jet-nav-link>
                     @endif
 
                 </div>
@@ -170,6 +173,9 @@
             </x-jet-nav-link>
             <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
              {{ __('Produksi Perikanan') }}
+            </x-jet-nav-link>
+            <x-jet-nav-link href="{{ route('petugas.produksi.index') }}" :active="request()->routeIs('petugas.produksi.index')">
+                             {{ __('Data Produksi') }}
             </x-jet-nav-link>
         @endif
 

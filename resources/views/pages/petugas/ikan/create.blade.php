@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 bg-white sm:p-6">
-                    <form action="{{ route('ikan.store') }}" method="POST">
+                <form action="{{ route('petugas.ikan.store') }}" method="POST">
                         @csrf
                         <div class="mb-4">
                             <label for="Nama_Ikan" class="block text-sm font-medium text-gray-700">Nama Ikan</label>
@@ -25,7 +25,7 @@
                             <input type="text" name="Kategori_Ikan" id="Kategori_Ikan" class="mt-1 block w-full" required>
                         </div>
                         <div class="mt-6">
-                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Simpan</button>
+                            <button type="submit" class="px-4 py-2  bg-green-500 hover:bg-green-700 text-white rounded">Simpan</button>
                         </div>
                     </form>
                 </div>

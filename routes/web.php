@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController, ProduksiController, KategoriIkanChartController};
 use App\Http\Controllers\IkanController;
+use App\Http\Controllers\DataProduksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,6 @@ use App\Http\Controllers\IkanController;
 |
 */
 Route::get('/', [FrontendController::class, "index"])->name("index");
-
-Route::get('/kategori-ikan-chart', [KategoriIkanChartController::class, 'index']); // Tambahkan route baru di sini
 
 Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -32,6 +31,8 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
     Route::get('/', [PetugasController::class, 'index'])->name('index');
  
     Route::middleware(["petugas"])->group(function () {
+        Route::resource('ikan', IkanController::class);
+        Route::post('/ikan', [IkanController::class, 'store'])->name('ikan.store');
         Route::resource('perikanan', IkanController::class)->only([
             'index',
             'create',
@@ -40,13 +41,23 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'edit',
             'destroy',
         ]);     
-        Route::resource('ikan', IkanController::class);
-     
         Route::resource('produksi', ProduksiController::class)->only([
             'index',
+            'create',
+            'store',
+            'update',
+            'edit',
+            'destroy',
         ]); 
-        Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');
-        
+        Route::resource('dataproduksi', DataProduksiController::class)->only([
+            'index',
+            'create',
+            'store',
+            'update',
+            'edit',
+            'destroy',
+        ]); 
+        Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
 
     });
 });

@@ -45,7 +45,7 @@
                     {data: 'Nama_Ikan', name: 'Nama_Ikan'},
                     {data: 'Deskripsi', name: 'Deskripsi'},
                     {data: 'Kategori_Ikan', name: 'Kategori_Ikan'},
-                    {data: 'action', name: 'action', orderable: false, searchable: false, width: '25%'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false, width: '25%'},      
                 ]
             });
         </script>
