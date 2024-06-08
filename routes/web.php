@@ -32,7 +32,6 @@ Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('das
 
 Route::middleware(['auth'])->group(function () {
     // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
 
     // User Management
     Route::resource('user', UserController::class, ['except' => ['show']]);

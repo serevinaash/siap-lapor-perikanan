@@ -11,6 +11,7 @@
                 <div class="px-4 bg-white sm:p-6">
                 <form action="{{ route('petugas.ikan.store') }}" method="POST">
                         @csrf
+                        
                         <div class="mb-4">
                             <label for="Nama_Ikan" class="block text-sm font-medium text-gray-700">Nama Ikan</label>
                             <input type="text" name="Nama_Ikan" id="Nama_Ikan" class="mt-1 block w-full" required>

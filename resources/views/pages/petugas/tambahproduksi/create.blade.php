@@ -17,10 +17,16 @@
                             <p>{{ session('error') }}</p>
                         </div>
                     @endif
-                    <form action="{{ route('petugas.dataproduksi.store') }}" method="POST">
+                    <form action="{{ route('petugas.tambahproduksi.store') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="ID_Ikan" value="{{ $ID_ikan }}">
-                        <input type="hidden" name="Pengola_Produksi" value="{{ auth()->user()->id }}">
+                        <div class="mb-4">
+                            <label for="pengelola_Produksi" class="block text-sm font-medium text-gray-700">pengelola</label>
+
+                        <input type="number" name="Pengola_Produksi" value="{{ auth()->user()->id }}">
+                        <div class="mb-4">
+                            <label for="ID_Ikan" class="block text-sm font-medium text-gray-700">ID Ikan</label>
+                            <input type="text" value="{{ old('ID_ikan') ?? $ikan->ID_ikan }}" class="mt-1 block w-full" readonly>
+                        </div>
 
                         <div class="mb-4">
                             <label for="Jumlah_Produksi" class="block text-sm font-medium text-gray-700">Jumlah Produksi</label>

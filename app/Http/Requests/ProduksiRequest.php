@@ -34,6 +34,7 @@ class ProduksiRequest extends FormRequest
             'Harga_Ikan' => 'required|numeric',
             'Pengola_Produksi' => 'required|integer',
             'Status_Produksi' => 'required|string|max:20',
+            'ID_Ikan' => 'required|interger',
         ];
     }
 }

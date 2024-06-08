@@ -19,6 +19,7 @@
                                 <th>Lokasi Produksi</th>
                                 <th>Harga Ikan</th>
                                 <th>Status Produksi</th>
+                                <th>Id Ikan</th>
                                 <th>Aksi</th>   
                             </tr>
                         </thead>
@@ -48,6 +49,7 @@
                     {data: 'Lokasi_Produksi', name: 'Lokasi_Produksi'},
                     {data: 'Harga_Ikan', name: 'Harga_Ikan'},
                     {data: 'Status_Produksi', name: 'Status_Produksi'},
+                    {data: 'ID_Ikan', name: 'ID_Ikan'},
                     {data: 'action', name: 'action', orderable: false, searchable: false, width: '25%'},      
                 ]
             });

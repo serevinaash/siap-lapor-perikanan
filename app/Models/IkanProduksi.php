@@ -19,6 +19,7 @@ class IkanProduksi extends Model
         'Harga_Ikan',
         'Pengola_Produksi',
         'Status_Produksi',
+        'ID_Ikan',
     ];
 }
 

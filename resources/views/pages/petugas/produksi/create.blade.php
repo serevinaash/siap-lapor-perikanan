@@ -11,6 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="POST" action="{{ route('petugas.produksi.store') }}">
                         @csrf
+                        
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="ID_Ikan">
                                 Nama Ikan
