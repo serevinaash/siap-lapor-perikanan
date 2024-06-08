@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController, ProduksiController, KategoriIkanChartController};
 use App\Http\Controllers\IkanController;
 use App\Http\Controllers\DataProduksiController;
+use App\Http\Controllers\TambahProduksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,12 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'edit',
             'destroy',
         ]);     
+        Route::resource('tambahproduksi', TambahProduksiController::class)->only([
+            'index',
+            'create',
+            'store',
+            'produksi',
+        ]);     
         Route::resource('produksi', ProduksiController::class)->only([
             'index',
             'create',
@@ -59,6 +66,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
         ]); 
         Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
         Route::get('/dataproduksi/{dataproduksi}/edit', [DataProduksiController::class, 'edit'])->name('dataproduksi.edit');
+        Route::post('/dataproduksi/store', [DataProduksiController::class, 'store'])->name('dataproduksi.store');
 
     });
 });
