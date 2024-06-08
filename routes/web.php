@@ -16,7 +16,10 @@ use App\Http\Controllers\TambahProduksiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::get('/', [FrontendController::class, "index"])->name("index");
+
 
 Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -26,6 +29,24 @@ Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('das
       
     });
 });
+
+Route::middleware(['auth'])->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
+
+    // User Management
+    Route::resource('user', UserController::class, ['except' => ['show']]);
+    Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('profile/password', [ProfileController::class, 'password'])->name('profile.password');
+
+    // Other routes
+    Route::get('upgrade', [UpgradeController::class, 'index'])->name('upgrade');
+    Route::get('map', [MapController::class, 'index'])->name('map');
+    Route::get('icons', [IconsController::class, 'index'])->name('icons');
+    Route::get('table-list', [TableController::class, 'index'])->name('table');
+});
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petugas')->group(function () {
@@ -67,6 +88,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
         Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
         Route::get('/dataproduksi/{dataproduksi}/edit', [DataProduksiController::class, 'edit'])->name('dataproduksi.edit');
         Route::post('/dataproduksi/store', [DataProduksiController::class, 'store'])->name('dataproduksi.store');
+
 
     });
 });
