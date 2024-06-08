@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Ikan;
 use App\Models\Produksi;
+use App\Models\DataProduksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Requests\IkanRequest;
 use App\Http\Requests\ProduksiRequest;
+use app\Http\Request\DataProduksiRequest;
 use Yajra\DataTables\Facades\DataTables;
 
 class IkanController extends Controller
@@ -30,10 +32,6 @@ class IkanController extends Controller
                         </button>
                         ' . method_field('delete') . csrf_field() . '
                     </form>
-                    <form class="inline-block"  action="' . route('petugas.produksi.create', $item->ID_Ikan) .'" method="POST">
-                    <button type="submit" class="px-2 py-1 m-2  bg-green-500 hover:bg-green-700 text-white font-bold rounded">
-                    Produksi
-                   </button>
                 
                     ';
                 })
