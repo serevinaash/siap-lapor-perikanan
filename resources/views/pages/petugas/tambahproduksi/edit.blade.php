@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Tambah Produksi Perikanan') }}
+            {{ __('Edit Produksi Perikanan') }}
         </h2>
     </x-slot>
 
@@ -17,43 +17,42 @@
                             <p>{{ session('error') }}</p>
                         </div>
                     @endif
-                    <form action="{{ route('petugas.tambahproduksi.store') }}" method="POST">
+                    <form action="{{ route('petugas.tambahproduksi.update', $produksi->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="mb-4">
-                      
-                        <input type="number" name="Pengola_Produksi" value="{{ auth()->user()->id }}">
-                        <input type="number" name="ID_Ikan" value="{{ $idIkan }}" required>
-
-                        
+                            <input type="number" name="Pengola_Produksi" value="{{ auth()->user()->id }}" hidden>
+                            <input type="number" name="ID_Ikan" value="{{ $produksi->ID_Ikan }}" hidden>
+                        </div>
                     
                         <div class="mb-4">
                             <label for="Jumlah_Produksi" class="block text-sm font-medium text-gray-700">Jumlah Produksi</label>
-                            <input type="number" name="Jumlah_Produksi" id="Jumlah_Produksi" class="mt-1 block w-full" required>
+                            <input type="number" name="Jumlah_Produksi" id="Jumlah_Produksi" class="mt-1 block w-full" value="{{ $produksi->Jumlah_Produksi }}" required>
                         </div>
                         
                         <div class="mb-4">
                             <label for="Tanggal_Produksi" class="block text-sm font-medium text-gray-700">Tanggal Produksi</label>
-                            <input type="date" name="Tanggal_Produksi" id="Tanggal_Produksi" class="mt-1 block w-full" required>
+                            <input type="date" name="Tanggal_Produksi" id="Tanggal_Produksi" class="mt-1 block w-full" value="{{ $produksi->Tanggal_Produksi }}" required>
                         </div>
                         
                         <div class="mb-4">
                             <label for="Lokasi_Produksi" class="block text-sm font-medium text-gray-700">Lokasi Produksi</label>
-                            <input type="text" name="Lokasi_Produksi" id="Lokasi_Produksi" class="mt-1 block w-full" required>
+                            <input type="text" name="Lokasi_Produksi" id="Lokasi_Produksi" class="mt-1 block w-full" value="{{ $produksi->Lokasi_Produksi }}" required>
                         </div>
                         
                         <div class="mb-4">
                             <label for="Harga_Ikan" class="block text-sm font-medium text-gray-700">Harga Ikan</label>
-                            <input type="text" name="Harga_Ikan" id="Harga_Ikan" class="mt-1 block w-full" required>
+                            <input type="text" name="Harga_Ikan" id="Harga_Ikan" class="mt-1 block w-full" value="{{ $produksi->Harga_Ikan }}" required>
                         </div>
                         
                         <div class="mb-4">
                             <label for="Status_Produksi" class="block text-sm font-medium text-gray-700">Status Produksi</label>
-                            <input type="text" name="Status_Produksi" id="Status_Produksi" class="mt-1 block w-full" required>
+                            <input type="text" name="Status_Produksi" id="Status_Produksi" class="mt-1 block w-full" value="{{ $produksi->Status_Produksi }}" required>
                         </div>
 
                         <div class="mt-6">
-                            <button type="submit" class="px-4 py-2 bg-green-500 hover:bg-green-700 text-white rounded">
-                                Simpan
+                            <button type="submit" class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded">
+                                Update Produksi
                             </button>
                         </div>
                     </form>

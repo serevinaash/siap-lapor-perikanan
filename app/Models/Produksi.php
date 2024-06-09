@@ -26,7 +26,6 @@ class Produksi extends Model
         'Status_Produksi',
     ];
 
-    // Define the relationship with the Ikan model
     public function ikan()
     {
         return $this->belongsTo(Ikan::class, 'ID_Ikan', 'ID_Ikan');
@@ -37,4 +36,6 @@ class Produksi extends Model
     {
         return $this->belongsTo(User::class, 'Pengola_Produksi', 'id');
     }
+    
+    public $timestamps = false;
 }

@@ -3,6 +3,9 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Produksi') }}
         </h2>
+        <a href="{{ route('petugas.tambahproduksi.create') }}" class="btn btn-primary">
+            Tambah Produksi
+        </a>
     </x-slot>
 
     <div class="py-12 items-center">
@@ -19,8 +22,7 @@
                                 <th>Lokasi Produksi</th>
                                 <th>Harga Ikan</th>
                                 <th>Status Produksi</th>
-                                <th>Id Ikan</th>
-                                <th>Aksi</th>   
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,7 +51,6 @@
                     {data: 'Lokasi_Produksi', name: 'Lokasi_Produksi'},
                     {data: 'Harga_Ikan', name: 'Harga_Ikan'},
                     {data: 'Status_Produksi', name: 'Status_Produksi'},
-                    {data: 'ID_Ikan', name: 'ID_Ikan'},
                     {data: 'action', name: 'action', orderable: false, searchable: false, width: '25%'},      
                 ]
             });

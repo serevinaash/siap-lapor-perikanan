@@ -30,6 +30,7 @@ class IkanController extends Controller
                         <button type="submit" class="px-2 py-1 m-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">
                             Hapus
                         </button>
+                              <a href="/petugas/tambahproduksi/create?id=' . $item->ID_Ikan . '" class="btn btn-sm btn-primary">Tambah Produksi</a>
                         ' . method_field('delete') . csrf_field() . '
                     </form>
                 

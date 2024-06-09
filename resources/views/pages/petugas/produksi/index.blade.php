@@ -47,7 +47,7 @@
                     {data: 'Tanggal_Produksi', name: 'Tanggal_Produksi'},
                     {data: 'Lokasi_Produksi', name: 'Lokasi_Produksi'},
                     {data: 'Harga_Ikan', name: 'Harga_Ikan'},
-                    {data: 'Pengola_Produksi', name: 'Pengola_Produksi'},
+                    {data: 'Pengola_Name', name: 'Pengola_Name'},
                     {data: 'Status_Produksi', name: 'Status_Produksi'},
                 ]
             });

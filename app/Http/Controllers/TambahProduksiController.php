@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\IkanProduksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Ikan;
-use App\Http\Requests\ProduksiRequest;
+use App\Models\Produksi;
+use App\Http\Requests\DataProduksiRequest;
 use Yajra\DataTables\Facades\DataTables;
 
 class TambahProduksiController extends Controller
@@ -14,17 +14,25 @@ class TambahProduksiController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = IkanProduksi::where('Status_Produksi', '!=', 'selesai');
+            $query = Produksi::select('produksi_perikanan.*', 'ikan.Nama_Ikan')
+                                 ->join('ikan', 'produksi_perikanan.ID_Ikan', '=', 'ikan.ID_Ikan')
+                                 ->where('produksi_perikanan.Status_Produksi', '!=', 'selesai');
+            
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
-                        <form class="inline-block" action="' . route('petugas.tambahproduksi.create') . '" method="GET">
-                            <input type="hidden" name="ID_ikan" value="' . $item->ID_ikan . '">
+                        <form class="inline-block" action="' . route('petugas.dataproduksi.edit', $item->ID_Produksi) . '" method="GET">
                             <button type="submit" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">
-                                Produksi
+                                Edit
                             </button>
                         </form>
-                    ';
+                        <form class="inline-block" action="' . route('petugas.dataproduksi.destroy', $item->ID_Produksi) . '" method="POST">
+                            <button type="submit" class="px-2 py-1 m-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">
+                                Hapus
+                            </button>
+                            ' . method_field('delete') . csrf_field() . '
+                        </form>
+                           ';
                 })
                 ->rawColumns(['action'])
                 ->make(true);
@@ -32,12 +40,11 @@ class TambahProduksiController extends Controller
 
         return view('pages.petugas.tambahproduksi.index');
     }
-
-    public function create(Ikan $ikan)
+     public function create(Request $request)
     {
-        return view('pages.petugas.tambahproduksi.create', compact('ikan'));
+        $idIkan = $request->get('id');
+        return view('pages.petugas.tambahproduksi.create', compact('idIkan'));
     }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -51,10 +58,10 @@ class TambahProduksiController extends Controller
         ]);
 
         $requestData = $request->all();
-        $ID_ikan = $request->input('ID_ikan');
-        $requestData['ID_Ikan'] = $ID_ikan;
+        $ID_Ikan = $request->input('ID_Ikan');
+        $requestData['ID_Ikan'] = $ID_Ikan;
 
-        IkanProduksi::create($requestData);
+        Produksi::create($requestData);
 
         return redirect()->route('petugas.tambahproduksi.create')->with('success', 'Data produksi berhasil dibuat.');
     }

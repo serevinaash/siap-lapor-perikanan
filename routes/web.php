@@ -66,28 +66,31 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'index',
             'create',
             'store',
-            'produksi',
+            'edit', // Add edit route here
+            'update', // Add update route here
+            'destroy', // Add destroy route here
         ]);     
         Route::resource('produksi', ProduksiController::class)->only([
             'index',
             'create',
             'store',
-            'update',
-            'edit',
-            'destroy',
+            'update', // Add update route here
+            'edit', // Add edit route here
+            'destroy', // Add destroy route here
         ]); 
         Route::resource('dataproduksi', DataProduksiController::class)->only([
             'index',
             'create',
             'store',
-            'update',
-            'edit',
-            'destroy',
+            'update', // Add update route here
+            'edit', // Add edit route here
+            'destroy', // Add destroy route here
         ]); 
         Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
+        Route::get('/tambahproduksi/{tambahproduksi}/edit', [TambahProduksiController::class, 'edit'])->name('tambahproduksi.edit');   
         Route::get('/dataproduksi/{dataproduksi}/edit', [DataProduksiController::class, 'edit'])->name('dataproduksi.edit');
         Route::post('/dataproduksi/store', [DataProduksiController::class, 'store'])->name('dataproduksi.store');
 
 
-    });
+            });
 });

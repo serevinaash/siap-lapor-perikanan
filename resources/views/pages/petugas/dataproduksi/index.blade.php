@@ -11,8 +11,8 @@
                 <div class="px-4 bg-white sm:p-6">
                     <table id="crudTable" class="text-center w-full">
                         <thead>
-                            <tr>
-                                <th>ID Produksi</th>
+                            <tr>     
+                                <th>No.</th>
                                 <th>Jumlah Produksi</th>
                                 <th>Tanggal Produksi</th>
                                 <th>Lokasi Produksi</th>
@@ -36,7 +36,11 @@
                     url: '{!! route('petugas.dataproduksi.index') !!}'
                 },
                 columns: [
-                    {data: 'ID_Produksi', name: 'ID_Produksi'},
+                    {data: null, name: 'No.', searchable: false, sortable: false,
+                        render: function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
                     {data: 'Jumlah_Produksi', name: 'Jumlah_Produksi'},
                     {data: 'Tanggal_Produksi', name: 'Tanggal_Produksi'},
                     {data: 'Lokasi_Produksi', name: 'Lokasi_Produksi'},
