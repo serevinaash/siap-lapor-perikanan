@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataProduksi;
 use Illuminate\Http\Request;
-
-use App\Http\Requests\DatProduksiRequest;
+use App\Http\Requests\DataProduksiRequest;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
