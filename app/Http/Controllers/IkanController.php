@@ -23,14 +23,15 @@ class IkanController extends Controller
                     return '
                     <form class="inline-block" action="' . route('petugas.ikan.edit', $item->ID_Ikan) . '" method="GET">
                         <button type="submit" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">
-                            Edit
+                            <i class="fas fa-edit"></i>
                         </button>
                     </form>
                     <form class="inline-block" action="' . route('petugas.ikan.destroy', $item->ID_Ikan) . '" method="POST">
                         <button type="submit" class="px-2 py-1 m-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">
-                            Hapus
+                        <i class="fas fa-trash"></i> 
                         </button>
-                              <a href="/petugas/tambahproduksi/create?id=' . $item->ID_Ikan . '" class="btn btn-sm btn-primary">Tambah Produksi</a>
+                              <a href="/petugas/tambahproduksi/create?id=' . $item->ID_Ikan . '" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">    <i class="fas fa-plus"></i>
+ </a>
                         ' . method_field('delete') . csrf_field() . '
                     </form>
                 

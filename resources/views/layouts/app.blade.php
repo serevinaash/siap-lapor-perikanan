@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="apple-touch-icon" sizes="76x76" href="{{url('/argon/assets/img/apple-icon.png')}}">
-        <link rel="icon" type="image/png" href="{{url('/argon/assets/img/favicon.png')}}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{url('/frontend/argon/assets/img/apple-icon.png')}}">
+        <link rel="icon" type="image/png" href="{{url('/frontend/argon/assets/img/favicon.png')}}">
         <title>
-            Argon Dashboard 2 by Creative Tim
+            Siap Lapor
         </title>
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <!-- Nucleo Icons -->
-        <link href="{{url('/argon/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
-        <link href="{{url('/argon/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+        <link href="/frontend/argon/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="/frontend/argon/css/nucleo-svg.css" rel="stylesheet" />
         <!-- Font Awesome Icons -->
         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-        <link href="{{url('/argon/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+        <link href="/frontend/argon/css/nucleo-svg.css" rel="stylesheet" />
         <!-- CSS Files -->
-        <link id="pagestyle" href="{{url('/argon/assets/css/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link id="pagestyle" href="/frontend/argon/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />  <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -95,31 +94,120 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="/frontend/argon/js/core/popper.min.js"></script>
+    <script src="/frontend/argon/js/core/bootstrap.min.js"></script>
+    <script src="/frontend/argon/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/frontend/argon/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="/frontend/argon/js/plugins/chartjs.min.js"></script>
+    <script>
+    var ctx1 = document.getElementById("chart-line").getContext("2d");
 
+    var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+    new Chart(ctx1, {
+        type: "line",
+        data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+            label: "Mobile apps",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#5e72e4",
+            backgroundColor: gradientStroke1,
+            borderWidth: 3,
+            fill: true,
+            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            maxBarThickness: 6
+        }],
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+            display: false,
+            }
+        },
+        interaction: {
+            intersect: false,
+            mode: 'index',
+        },
+        scales: {
+            y: {
+            grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5]
+            },
+            ticks: {
+                display: true,
+                padding: 10,
+                color: '#fbfbfb',
+                font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+                },
+            }
+            },
+            x: {
+            grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5]
+            },
+            ticks: {
+                display: true,
+                color: '#ccc',
+                padding: 20,
+                font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+                },
+            }
+            },
+        },
+        },
+    });
+    </script>
+    <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+        damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/frontend/argon/js/argon-dashboard.min.js?v=2.0.4"></script>
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
     </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
+    <body class="g-sidenav-show bg-gray-100">
+    <x-jet-banner />
+        @livewire('navigation-menu')
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+        <!-- Page Heading -->
+     
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+        <!-- Page Content -->
+             
+         {{ $slot }}
+   
 
         @stack('modals')
 

@@ -47,12 +47,19 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
+    Route::get('/', [PetugasController::class, 'index'])->name('index');
+
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petugas')->group(function () {
     Route::get('/', [PetugasController::class, 'index'])->name('index');
- 
+    Route::get('/petugas/dashboard', [PetugasController::class, 'dashboard'])->name('petugas.dashboard');
+    Route::get('/petugas/index', [PetugasController::class, 'index'])->name('petugas.index');
     Route::middleware(["petugas"])->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('index');
         Route::resource('ikan', IkanController::class);
+        Route::resource('index', PetugasController::class);
         Route::post('/ikan', [IkanController::class, 'store'])->name('ikan.store');
         Route::resource('perikanan', IkanController::class)->only([
             'index',

@@ -1,12 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-         
-        </h2>
+            {{ __('Dashboard') }}
     </x-slot>
-</x-app-layout>
 
-<main class="main-content position-relative border-radius-lg ">
+<body class="g-sidenav-show bg-gray-100">
+<div class="min-height-300 bg-primary position-absolute w-100"></div>
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -173,4 +171,3 @@
       </footer>
     </div>
   </main>
-       

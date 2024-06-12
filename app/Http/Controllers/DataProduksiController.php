@@ -18,13 +18,13 @@ class DataProduksiController extends Controller
                 ->addColumn('action', function($item) {
                     return '
                     <form class="inline-block" action="' . route('petugas.dataproduksi.edit', $item->ID_Produksi) . '" method="GET">
-                        <button type="submit" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">
-                            Edit
+                         <button type="submit" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">
+                            <i class="fas fa-edit"></i>
                         </button>
                     </form>
                     <form class="inline-block" action="' . route('petugas.dataproduksi.destroy', $item->ID_Produksi) . '" method="POST">
                         <button type="submit" class="px-2 py-1 m-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">
-                            Hapus
+                        <i class="fas fa-trash"></i> 
                         </button>
                         ' . method_field('delete') . csrf_field() . '
                     </form>

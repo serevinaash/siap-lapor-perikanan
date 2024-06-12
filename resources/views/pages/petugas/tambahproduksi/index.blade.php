@@ -8,7 +8,8 @@
         </a>
     </x-slot>
 
-    <div class="py-12 items-center">
+    <
+    <div class="py-4 items-center">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 bg-white sm:p-6">
