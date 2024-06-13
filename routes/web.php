@@ -34,6 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('das
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('pages.dashboard.index');
     Route::get('/dashboard/{user}/edit', [UserController::class, 'edit'])->name('dashboard.edit');
     Route::delete('/dashboard/{user}', [UserController::class, 'destroy'])->name('dashboard.destroy');
     Route::put('/dashboard/{user}', [UserController::class, 'update'])->name('dashboard.update');
