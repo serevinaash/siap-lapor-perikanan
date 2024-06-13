@@ -1,22 +1,5 @@
 <!-- START: HEADER -->
-<header class="{{\Route::current()->getName() === "index" ? "absolute" : ""}} w-full z-50 px-4">
-    <div class="container mx-auto py-5">
-      <div class="flex flex-stretch items-center">
-        <div class="w-56 items-center flex">
-          <a href="{{route("index")}}">
-            <img
-            src={{url("/frontend/images/content/logo.png")}} alt="Luxspace | Fulfill your house with beautiful furniture"
-           />
-          </a>
-        </div>
-        <div class="w-full"></div>
-        <div class="w-auto">
-        <ul class="fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center" id="menu">
-        <li class="mx-3 py-6 md:py-0">
-              <a href="{{ route('index') }}" class="text-black {{ \Route::current()->getName() === 'index' ? 'md:text-black' : 'md:text-black' }} hover:underline">Home</a>
-          </li>  
-       
-          
+
           
 
             @auth

@@ -11,7 +11,7 @@ class DashboardController extends Controller
     {
         if (Auth::user()->roles == "ADMIN") {
            
-            return view("dashboard");
+            return view("dashboard.index");
         }
 
         return redirect("/");

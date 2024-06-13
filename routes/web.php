@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController, ProduksiController, KategoriIkanChartController};
+use App\Http\Controllers\{FrontendController, AdminController, UserController, DashboardController, PetugasController, PerikananController, ProduksiController, KategoriIkanChartController};
 use App\Http\Controllers\IkanController;
 use App\Http\Controllers\DataProduksiController;
 use App\Http\Controllers\TambahProduksiController;
@@ -17,17 +17,27 @@ use App\Http\Controllers\TambahProduksiController;
 |
 */
 
-
 Route::get('/', [FrontendController::class, "index"])->name("index");
-
 
 Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-
     Route::middleware(["admin"])->group(function () {
-      
+        Route::resource('user', UserController::class)->only([
+            'index',
+            'edit',
+            'update',
+            'destroy'
+        ]);
     });
+});
+
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('pages.dashboard.index');
+    Route::get('/dashboard/{user}/edit', [UserController::class, 'edit'])->name('dashboard.edit');
+    Route::delete('/dashboard/{user}', [UserController::class, 'destroy'])->name('dashboard.destroy');
+    Route::put('/dashboard/{user}', [UserController::class, 'update'])->name('dashboard.update');
 });
 
 Route::middleware(['auth'])->group(function () {
