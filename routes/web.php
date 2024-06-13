@@ -1,10 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{FrontendController, DashboardController, PetugasController, PerikananController, ProduksiController, KategoriIkanChartController};
-use App\Http\Controllers\IkanController;
-use App\Http\Controllers\DataProduksiController;
-use App\Http\Controllers\TambahProduksiController;
+use App\Http\Controllers\{FrontendController,AdminController, DashboardController, PetugasController, PerikananController, ProduksiController, KategoriIkanChartController, IkanController, DataProduksiController, TambahProduksiController, UserController, ProfileController, UpgradeController, MapController, IconsController, TableController};
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +14,36 @@ use App\Http\Controllers\TambahProduksiController;
 |
 */
 
+Route::get('/', [FrontendController::class, 'index'])->name('index');
 
-Route::get('/', [FrontendController::class, "index"])->name("index");
-
-
-Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
+Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
+    Route::middleware(['admin'])->group(function () {
+        Route::resource('user', UserController::class)->only([
+            'index', 'edit', 'update', 'destroy'
+        ]);
 
-    Route::middleware(["admin"])->group(function () {
-      
     });
 });
 
-Route::middleware(['auth'])->group(function () {
-    // Dashboard
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::resource('user', UserController::class)->only([
+        'index', 'edit', 'update', 'destroy'
+    ]);
+    Route::resource('user', AdminController::class)->only([
+        'index', 'edit', 'update', 'destroy'
+    ]);
+    Route::resource('user', DashboardController::class)->only([
+        'index', 'edit', 'update', 'destroy'
+    ]);
+    Route::get('/dashboard/{dashboard}/edit', [UserController::class, 'edit'])->name('dashboard.edit');
+    Route::get('/dashboard/{dashboard}/destroy', [UserController::class, 'destroy'])->name('dashboard.destroy');
+    Route::get('/dashboard/{dashboard}/update', [UserController::class, 'update'])->name('dashboard.update');
+});
 
+Route::middleware(['auth'])->group(function () {
     // User Management
     Route::resource('user', UserController::class, ['except' => ['show']]);
     Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,58 +57,37 @@ Route::middleware(['auth'])->group(function () {
     Route::get('table-list', [TableController::class, 'index'])->name('table');
 });
 
-
-Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
+Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function () {
     Route::get('/', [PetugasController::class, 'index'])->name('index');
-
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petugas')->group(function () {
+Route::middleware(['auth:sanctum', 'verified'])->name('petugas.')->prefix('petugas')->group(function () {
     Route::get('/', [PetugasController::class, 'index'])->name('index');
-    Route::get('/petugas/dashboard', [PetugasController::class, 'dashboard'])->name('petugas.dashboard');
-    Route::get('/petugas/index', [PetugasController::class, 'index'])->name('petugas.index');
-    Route::middleware(["petugas"])->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard');
+    Route::get('/index', [PetugasController::class, 'index'])->name('index');
+
+    Route::middleware(['petugas'])->group(function () {
         Route::resource('ikan', IkanController::class);
-        Route::resource('index', PetugasController::class);
         Route::post('/ikan', [IkanController::class, 'store'])->name('ikan.store');
+        Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');
+
         Route::resource('perikanan', IkanController::class)->only([
-            'index',
-            'create',
-            'store',
-            'update',
-            'edit',
-            'destroy',
-        ]);     
+            'index', 'create', 'store', 'update', 'edit', 'destroy'
+        ]);
+
         Route::resource('tambahproduksi', TambahProduksiController::class)->only([
-            'index',
-            'create',
-            'store',
-            'edit', // Add edit route here
-            'update', // Add update route here
-            'destroy', // Add destroy route here
-        ]);     
+            'index', 'create', 'store', 'update', 'edit', 'destroy'
+        ]);
+        Route::get('/tambahproduksi/{tambahproduksi}/edit', [TambahProduksiController::class, 'edit'])->name('tambahproduksi.edit');
+
         Route::resource('produksi', ProduksiController::class)->only([
-            'index',
-            'create',
-            'store',
-            'update', // Add update route here
-            'edit', // Add edit route here
-            'destroy', // Add destroy route here
-        ]); 
+            'index', 'create', 'store', 'update', 'edit', 'destroy'
+        ]);
+
         Route::resource('dataproduksi', DataProduksiController::class)->only([
-            'index',
-            'create',
-            'store',
-            'update', // Add update route here
-            'edit', // Add edit route here
-            'destroy', // Add destroy route here
-        ]); 
-        Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
-        Route::get('/tambahproduksi/{tambahproduksi}/edit', [TambahProduksiController::class, 'edit'])->name('tambahproduksi.edit');   
+            'index', 'create', 'store', 'update', 'edit', 'destroy'
+        ]);
         Route::get('/dataproduksi/{dataproduksi}/edit', [DataProduksiController::class, 'edit'])->name('dataproduksi.edit');
         Route::post('/dataproduksi/store', [DataProduksiController::class, 'store'])->name('dataproduksi.store');
-
-
-            });
+    });
 });
