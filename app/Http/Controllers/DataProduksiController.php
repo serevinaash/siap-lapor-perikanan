@@ -89,4 +89,7 @@ class DataProduksiController extends Controller
 
         return redirect()->route('petugas.dataproduksi.index')->with('success', 'Data produksi berhasil dihapus.');
     }
+
+
+       
 }

@@ -26,6 +26,13 @@
                         <tbody>
                         </tbody>
                     </table>
+                    <div class="container mt-5 text-left">
+        <form action="" method="POST" enctype="multipart/form-data">
+            @csrf
+            <a class="btn btn-success" href="{{ route('exportxlsx-users') }}">Download .XLSX</a>
+            <a class="btn btn-success" href="{{ route('exportpdf-users') }}">Download .PDF</a>
+        </form>
+    </div>
                 </div>
             </div>
         </div>

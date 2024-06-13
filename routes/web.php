@@ -92,12 +92,15 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'update', // Add update route here
             'edit', // Add edit route here
             'destroy', // Add destroy route here
-        ]); 
+        ]);
+
         Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
         Route::get('/tambahproduksi/{tambahproduksi}/edit', [TambahProduksiController::class, 'edit'])->name('tambahproduksi.edit');   
         Route::get('/dataproduksi/{dataproduksi}/edit', [DataProduksiController::class, 'edit'])->name('dataproduksi.edit');
         Route::post('/dataproduksi/store', [DataProduksiController::class, 'store'])->name('dataproduksi.store');
-
-
-            });
 });
+});
+
+        //Export Route
+        Route::get('/exportxlsx-users',[ProduksiController::class,'exportxlsxUsers'])->name('exportxlsx-users');
+        Route::get('/exportpdf-users', [ProduksiController::class, 'downloadPDF'])->name('exportpdf-users');

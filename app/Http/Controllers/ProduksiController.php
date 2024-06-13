@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Requests\ProduksiRequest;
 use Yajra\DataTables\Facades\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportUser;
 
 class ProduksiController extends Controller
 {
@@ -27,4 +29,13 @@ class ProduksiController extends Controller
 
         return view('pages.petugas.produksi.index');
     }
+    
+    //Export
+    public function exportxlsxUsers(Request $request){
+        return Excel::download(new ExportUser, 'users.xlsx');
+    }
+    public function downloadPDF(Request $request) {
+        return Excel::download(new ExportUser, 'users.pdf');
+    }
 }
+
