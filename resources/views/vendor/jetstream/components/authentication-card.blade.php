@@ -1,7 +1,7 @@
 <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
     <div>
     <img
-src={{url("/frontend/images/content/logo.png")}} alt="Luxspace | Fulfill your house with beautiful furniture"
+src={{url("/frontend/images/content/logorpl.png")}} alt="SIAP LAPOR"
 />
     </div>
 

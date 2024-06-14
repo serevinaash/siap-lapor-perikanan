@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataProduksi;
 use Illuminate\Http\Request;
+use App\Http\Requests\DataProduksiRequest;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -17,13 +18,13 @@ class DataProduksiController extends Controller
                 ->addColumn('action', function($item) {
                     return '
                     <form class="inline-block" action="' . route('petugas.dataproduksi.edit', $item->ID_Produksi) . '" method="GET">
-                        <button type="submit" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">
-                            Edit
+                         <button type="submit" class="px-2 py-1 m-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded">
+                            <i class="fas fa-edit"></i>
                         </button>
                     </form>
                     <form class="inline-block" action="' . route('petugas.dataproduksi.destroy', $item->ID_Produksi) . '" method="POST">
                         <button type="submit" class="px-2 py-1 m-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded">
-                            Hapus
+                        <i class="fas fa-trash"></i> 
                         </button>
                         ' . method_field('delete') . csrf_field() . '
                     </form>
@@ -34,45 +35,31 @@ class DataProduksiController extends Controller
         }
         return view('pages.petugas.dataproduksi.index');
     }
-
-    public function create(Request $request)
+    public function create()
     {
-        $ID_ikan = $request->input('ID_ikan');
-        return view('pages.petugas.dataproduksi.create', compact('ID_ikan'));
+        return view('pages.petugas.tambahproduksi.create');
     }
 
     public function store(Request $request)
-{
-    $data = $request->validate([
-        'ID_Ikan' => 'required|exists:ikan,ID_Ikan',
-        'Jumlah_Produksi' => 'required|integer|min:0',
-        'Tanggal_Produksi' => 'required|date',
-        'Lokasi_Produksi' => 'required|string|max:50',
-        'Harga_Ikan' => 'required|numeric|min:0',
-        'Pengola_Produksi' => 'required|exists:users,id',
-        'Status_Produksi' => 'required|string|max:20',
-    ]);
-
-    try {
-        // Simpan data produksi
-        DataProduksi::create($data);
-        // Catat informasi berhasil
-        Log::info('Data produksi berhasil ditambahkan.');
-        // Redirect dengan pesan sukses
-        return redirect()->route('petugas.dataproduksi.index')->with('success', 'Data produksi berhasil ditambahkan');
-    } catch (\Exception $e) {
-        // Tangani kesalahan
-        Log::error('Error creating data produksi: ' . $e->getMessage());
-        return redirect()->back()->with('error', 'Failed to save data produksi. Error: ' . $e->getMessage());
-    }
-}
-
-
-
-
-    public function show(DataProduksi $dataproduksi)
     {
-        return view('pages.petugas.dataproduksi.show', compact('dataproduksi'));
+        $request->validate([
+            'ID_Ikan' => 'required|exists:ikan,ID_Ikan',
+            'Jumlah_Produksi' => 'required|numeric',
+            'Tanggal_Produksi' => 'required|date',
+            'Lokasi_Produksi' => 'required|string|max:100',
+            'Harga_Ikan' => 'required|numeric',
+            'Pengola_Produksi' => 'required|string|max:100',
+            'Status_Produksi' => 'required|string|max:50',
+        ]);
+
+        DataProduksi::create($request->all());
+
+        return redirect()->route('petugas.tambahproduksi.create')->with('success', 'Production data created successfully.');
+    }
+
+    public function show(DataProduksi $dataProduksi)
+    {
+        return view('pages.petugas.produksi.show', compact('dataProduksi'));
     }
 
     public function edit(DataProduksi $dataproduksi)
@@ -102,4 +89,7 @@ class DataProduksiController extends Controller
 
         return redirect()->route('petugas.dataproduksi.index')->with('success', 'Data produksi berhasil dihapus.');
     }
+
+
+       
 }

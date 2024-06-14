@@ -1,11 +1,6 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Ikan') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12 items-center">
+    <div class="py-4 items-center">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 bg-white sm:p-6">
@@ -18,7 +13,7 @@
                         <table id="crudTable" class="text-center">
                             <thead>
                                 <tr>
-                                    <th>ID Ikan</th>
+                                    <th>No.</th>
                                     <th>Nama Ikan</th>
                                     <th>Deskripsi</th>
                                     <th>Kategori Ikan</th>
@@ -36,17 +31,37 @@
 
     <x-slot name="script">
         <script>
-            var dataTable = $('#crudTable').DataTable({
-                ajax: {
-                    url: '{!! url()->current() !!}'
-                },
-                columns: [
-                    {data: 'ID_Ikan', name: 'ID_Ikan'},
-                    {data: 'Nama_Ikan', name: 'Nama_Ikan'},
-                    {data: 'Deskripsi', name: 'Deskripsi'},
-                    {data: 'Kategori_Ikan', name: 'Kategori_Ikan'},
-                    {data: 'action', name: 'action', orderable: false, searchable: false, width: '25%'},      
-                ]
+            $(document).ready(function() {
+                var dataTable = $('#crudTable').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: {
+                        url: '{!! url()->current() !!}',  // Ensure the URL is correct
+                    },
+                    columns: [
+                        {
+                            data: null,
+                            name: 'No.',
+                            searchable: false,
+                            orderable: false,
+                            render: function (data, type, row, meta) {
+                                // This will calculate the row number
+                                return meta.row + meta.settings._iDisplayStart + 1;
+                            }
+                        },
+                        {data: 'Nama_Ikan', name: 'Nama_Ikan'},
+                        {data: 'Deskripsi', name: 'Deskripsi'},
+                        {data: 'Kategori_Ikan', name: 'Kategori_Ikan'},
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false,
+                            width: '25%'
+                        },
+                    ],
+                    order: [[1, 'asc']]  // Default sort order
+                });
             });
         </script>
     </x-slot>

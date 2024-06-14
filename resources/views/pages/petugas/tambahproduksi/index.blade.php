@@ -3,9 +3,13 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Produksi') }}
         </h2>
+        <a href="{{ route('petugas.tambahproduksi.create') }}" class="btn btn-primary">
+            Tambah Produksi
+        </a>
     </x-slot>
 
-    <div class="py-12 items-center">
+    <
+    <div class="py-4 items-center">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 bg-white sm:p-6">
@@ -19,7 +23,7 @@
                                 <th>Lokasi Produksi</th>
                                 <th>Harga Ikan</th>
                                 <th>Status Produksi</th>
-                                <th>Aksi</th>   
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 items-center">
+    
+    <div class="py-4 items-center">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden sm-rounded-md">
                 <div class="px-4 bg-white sm:p-6">
@@ -25,6 +26,13 @@
                         <tbody>
                         </tbody>
                     </table>
+                    <div class="container mt-5 text-left">
+        <form action="" method="POST" enctype="multipart/form-data">
+            @csrf
+            <a class="btn btn-success" href="{{ route('exportxlsx-users') }}">Download .XLSX</a>
+            <a class="btn btn-success" href="{{ route('exportpdf-users') }}">Download .PDF</a>
+        </form>
+    </div>
                 </div>
             </div>
         </div>
@@ -47,7 +55,7 @@
                     {data: 'Tanggal_Produksi', name: 'Tanggal_Produksi'},
                     {data: 'Lokasi_Produksi', name: 'Lokasi_Produksi'},
                     {data: 'Harga_Ikan', name: 'Harga_Ikan'},
-                    {data: 'Pengola_Produksi', name: 'Pengola_Produksi'},
+                    {data: 'Pengola_Name', name: 'Pengola_Name'},
                     {data: 'Status_Produksi', name: 'Status_Produksi'},
                 ]
             });
