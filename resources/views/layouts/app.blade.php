@@ -19,8 +19,9 @@
         <!-- CSS Files -->
         <link id="pagestyle" href="/frontend/argon/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <title>{{ config('app.name', 'Argon Dashboard') }}</title>
+        <!-- Favicon -->
+        <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -209,10 +210,16 @@
          {{ $slot }}
    
 
-        @stack('modals')
+        @guest()
+            @include('layouts.footers.guest')
+        @endguest
 
-        @livewireScripts
-        {{-- <!--- Tambahkan setelah @livewireScripts ---> --}}
-        {{ $script ?? '' }}
+        <script src="{{ asset('public') }}/frontend/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="{{ asset('public') }}/frontend/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        
+        @stack('js')
+        
+        <!-- Argon JS -->
+        <script src="{{ asset('public') }}/js/argon.js?v=1.0.0"></script>
     </body>
 </html>
