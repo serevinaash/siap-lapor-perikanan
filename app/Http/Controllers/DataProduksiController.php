@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\DataProduksiRequest;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 
 class DataProduksiController extends Controller
 {

@@ -106,121 +106,58 @@
 </div>
 
 </section><!-- /Featured Services Section -->
-<div class="container mt-4">
-        <div class="row">
-            <div class="col-lg-7 mb-lg-0 mb-4">
-                <div class="card z-index-2 h-100">
-                    <div class="card-header pb-0 pt-3 bg-transparent">
-                        <h6 class="text-capitalize">Produksi Overview</h6>
-                        <p class="text-sm mb-0">
-                            <i class="fa fa-arrow-up text-success"></i>
-                            <span class="font-weight-bold"></span> in 2024
-                        </p>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="chart">
-                            <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-                        </div>
-                    </div>
+
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up" data-aos-delay="200">
+            <img src="{{url("/frontend/lp/img/about.jpg")}}" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
           </div>
-        </div>
-          
-                    <div style="width: 600px; margin: auto; padding: 50px;">
-                        <canvas id="kategoriIkanChart"></canvas>
-                    </div>
 
+          <div class="col-lg-6 content order-last  order-lg-first" data-aos="fade-up" data-aos-delay="100">
+            <h3>About Us</h3>
+            <p>
+              Sistem Aplikasi Laporan Produksi Perikanan (SiapLapor) merupakan aplikasi mengenai laporan produksi perikanan yang berbasis web, yang 
+              dibuat untuk penyimpanan data-data produksi perikanan yang nantinya akan dijadikan data statistik perikanan, agar Memudahkan proses pengumpulan data produksi perikanan sehingga dapat diperoleh data real time, dan Memudahkan proses pengolahan data statistik perikanan sehingga dapat menghasilkan informasi statistik yang akurat, relevan, dan tepat waktu.
 
-                    <div class="card-body">
-                        <!-- Chart -->
-                        <div class="chart">
-                            <!-- Chart wrapper -->
-                            <canvas id="chart-sales" class="chart-canvas"></canvas>
-                        </div>
-                    </div>
+            </p>
+            <ul>
+              <li>
+                <i class="bi bi-diagram-3"></i>
+                <div>
+                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
+                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
                 </div>
-            </div>    
-                         <!--   Core JS Files   -->
-  <script src="./assets/js/core/popper.min.js"></script>
-  <script src="./assets/js/core/bootstrap.min.js"></script>
-  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="./assets/js/plugins/chartjs.min.js"></script>
-  <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Data untuk bar chart
-            var ctxBar = document.getElementById('chart-bar').getContext('2d');
-            var barChart = new Chart(ctxBar, {
-                type: 'bar',
-                data: {
-                    labels: {!! json_encode($categories) !!},
-                    datasets: [{
-                        label: 'Jumlah Produksi',
-                        data: {!! json_encode($values) !!},
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Jumlah Produksi'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Nama Ikan'
-                            }
-                        }
-                    }
-                }
-            });
+              </li>
+              <li>
+                <i class="bi bi-fullscreen-exit"></i>
+                <div>
+                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
+                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-broadcast"></i>
+                <div>
+                  <h5>Voluptatem et qui exercitationem</h5>
+                  <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime veniam</p>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-            // Data untuk line chart
-            var ctxLine = document.getElementById('chart-line').getContext('2d');
-            var lineChart = new Chart(ctxLine, {
-                type: 'line',
-                data: {
-                    labels: {!! json_encode($labels) !!},
-                    datasets: [{
-                        label: 'Jumlah Produksi Bulanan',
-                        data: {!! json_encode($monthlyValues) !!},
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1,
-                        fill: false
-                    }]
-                },
-                options: {
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Bulan'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Jumlah Produksi'
-                            }
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+
 
 @endsection

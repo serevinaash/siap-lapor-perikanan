@@ -9,6 +9,7 @@ use App\Http\Requests\ProduksiRequest;
 use Yajra\DataTables\Facades\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ExportUser;
+use Illuminate\Support\Facades\Auth;
 
 class ProduksiController extends Controller
 {

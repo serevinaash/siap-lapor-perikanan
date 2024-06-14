@@ -18,6 +18,11 @@ use App\Http\Controllers\TambahProduksiController;
 */
 
 Route::get('/', [FrontendController::class, "index"])->name("index");
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/reports', [FrontendController::class, 'reports'])->name('reports');
+Route::get('/download', [FrontendController::class, 'download'])->name('download');
+Route::get('/team', [FrontendController::class, 'team'])->name('team');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');

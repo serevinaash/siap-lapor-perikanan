@@ -9,11 +9,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Home<br></a></li>
-          <li><a href="reports.html">Reports</a></li>
-          <li><a href="download.html">Download</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="contact.html">Contact</a></li>
+        <ul>
+          <li><a href="{{ route('home') }}" class="active">Home</a></li>
+          <li><a href="{{ route('reports') }}">Reports</a></li>
+          <li><a href="{{ route('download') }}">Download</a></li>
+          <li><a href="{{ route('team') }}">Team</a></li>
+          <li><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

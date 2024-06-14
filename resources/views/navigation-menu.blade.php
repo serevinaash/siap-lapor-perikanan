@@ -1,4 +1,3 @@
-@if(Auth::user()->roles == 'PETUGAS')
 <body class="g-sidenav-show bg-gray-100">
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 fixed-top" id="sidenav-main"> 
@@ -8,78 +7,70 @@
                 <img src="{{url("/frontend/images/content/logorpl.png")}}" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold">Siap Lapor Perikanan</span>
             </a>
-</img>
         </div>
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('petugas.petugas.index') ? 'active' : '' }}" href="{{ route('petugas.petugas.index') }}">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('petugas.perikanan.index') ? 'active' : '' }}" href="{{ route('petugas.perikanan.index') }}">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Perikanan</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('petugas.tambahproduksi.index') ? 'active' : '' }}" href="{{ route('petugas.tambahproduksi.index') }}">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Produksi</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('petugas.dataproduksi.index') ? 'active' : '' }}" href="{{ route('petugas.produksi.index') }}">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-info text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Produksi Perikanan</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('petugas.produksi.index') ? 'active' : '' }}" href="{{ route('petugas.dataproduksi.index') }}">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-info text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Report Produksi Perikanan</span>
-                    </a>
-                </li>   
-            </ul>
-@endif
-@if(Auth::user()->roles == 'ADMIN')
-<body class="g-sidenav-show bg-gray-100">
-    <div class="min-height-300 bg-primary position-absolute w-100"></div>
-    <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 fixed-top" id="sidenav-main">
-        <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="{{ route('pages.dashboard.index') }}">
-                <img src="{{url("/frontend/images/content/logorpl.png")}}" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">Siap Lapor Perikanan</span>
-            </a>
-        </div>
-        <hr class="horizontal dark mt-0">
-        <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('pages.dashboard.index') ? 'active' : '' }}" href="{{ route('pages.dashboard.index') }}">
-                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
-                    </a>
-                </li>
+                @auth
+                    @if(Auth::user()->roles == 'PETUGAS')
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('petugas.petugas.index') ? 'active' : '' }}" href="{{ route('petugas.petugas.index') }}">
+                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('petugas.perikanan.index') ? 'active' : '' }}" href="{{ route('petugas.perikanan.index') }}">
+                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Perikanan</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('petugas.tambahproduksi.index') ? 'active' : '' }}" href="{{ route('petugas.tambahproduksi.index') }}">
+                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Produksi</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('petugas.dataproduksi.index') ? 'active' : '' }}" href="{{ route('petugas.produksi.index') }}">
+                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="ni ni-app text-info text-sm opacity-10"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Produksi Perikanan</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('petugas.produksi.index') ? 'active' : '' }}" href="{{ route('petugas.dataproduksi.index') }}">
+                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="ni ni-app text-info text-sm opacity-10"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Report Produksi Perikanan</span>
+                            </a>
+                        </li>
+                    @elseif(Auth::user()->roles == 'ADMIN')
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('pages.dashboard.index') ? 'active' : '' }}" href="{{ route('pages.dashboard.index') }}">
+                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Dashboard</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
         </div>
-@endif
+    </aside>
+
+    <!-- Rest of your main content here -->
+</body>
+
 </div>
 </aside>
   <main class="main-content position-relative border-radius-lg ">
