@@ -40,35 +40,35 @@
 
 
 
+
             <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
+    <div class="col-lg-3 col-6">
+        <div class="stats-item text-center">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="{{ $totalJumlahProduksi }}"></span>
+            <p>Total Perikanan</p>
+        </div>
+    </div><!-- End Stats Item -->
 
-              <div class="col-lg-3 col-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="0" class="purecounter">{{ $totalJumlahProduksi }}</span>
-                  <p>Total Perikanan</p>
-                </div>
-              </div><!-- End Stats Item -->
+    <div class="col-lg-3 col-6">
+        <div class="stats-item text-center">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="{{ $produksiProses }}"></span>
+            <p>Produksi Proses</p>
+        </div>
+    </div><!-- End Stats Item -->
 
-              <div class="col-lg-3 col-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="0" class="purecounter">{{ $produksiProses }}</span>
-                  <p>Produksi Proses</p>
-                </div>
-              </div><!-- End Stats Item -->
+    <div class="col-lg-3 col-6">
+        <div class="stats-item text-center">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="{{ $produksiSelesai }}"></span>
+            <p>Produksi Selesai</p>
+        </div>
+    </div><!-- End Stats Item -->
 
-              <div class="col-lg-3 col-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="27" data-purecounter-duration="0" class="purecounter">{{ $produksiSelesai }}</span>
-                  <p>Produksi Selesai</p>
-                </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-3 col-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0" class="purecounter">{{ $totalProduksi }}</span>
-                  <p>Total Produksi</p>
-                </div>
-              </div><!-- End Stats Item -->
+    <div class="col-lg-3 col-6">
+        <div class="stats-item text-center">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="{{ $totalProduksi }}"></span>
+            <p>Total Produksi</p>
+        </div>
+    </div><!-- End Stats Item -->
             </div>
           </div>
           <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">

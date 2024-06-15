@@ -15,7 +15,9 @@ class FrontendController extends Controller
 {
     public function index(Request $request)
     {
-        $totalJumlahProduksi = IkanProduksi::sum('Jumlah_Produksi');
+        $produksiData = Produksi::with('ikan')->get();
+
+        $totalJumlahProduksi = Produksi::sum('Jumlah_Produksi');
         $produksiProses = Produksi::where('Status_Produksi', 'proses')->count();
         $produksiSelesai = Produksi::where('Status_Produksi', 'selesai')->count();
         $totalProduksi = $produksiProses + $produksiSelesai;
