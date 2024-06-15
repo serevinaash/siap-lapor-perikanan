@@ -17,7 +17,8 @@ class FrontendController extends Controller
     {
         $totalJumlahProduksi = IkanProduksi::sum('Jumlah_Produksi');
          $produksiProses = IkanProduksi::where('Status_Produksi', 'proses')->count();
-         $produksiSelesai = IkanProduksi::where('Status_Produksi', 'selesai')->count();
+         $produksiSelesai = IkanProduksi::where('Status_Produksi', 'selesai')->count();   
+         $totalProduksi = $produksiProses + $produksiSelesai;
        
          // Kirim data ke view
          return view('pages.frontend.index', [
