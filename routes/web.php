@@ -18,6 +18,11 @@ use App\Http\Controllers\TambahProduksiController;
 */
 
 Route::get('/', [FrontendController::class, "index"])->name("index");
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/reports', [FrontendController::class, 'reports'])->name('reports');
+Route::get('/download', [FrontendController::class, 'download'])->name('download');
+Route::get('/team', [FrontendController::class, 'team'])->name('team');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -34,6 +39,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name("dashboard.")->prefix('das
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('pages.dashboard.index');
     Route::get('/dashboard/{user}/edit', [UserController::class, 'edit'])->name('dashboard.edit');
     Route::delete('/dashboard/{user}', [UserController::class, 'destroy'])->name('dashboard.destroy');
     Route::put('/dashboard/{user}', [UserController::class, 'update'])->name('dashboard.update');
@@ -101,12 +107,15 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
             'update', // Add update route here
             'edit', // Add edit route here
             'destroy', // Add destroy route here
-        ]); 
+        ]);
+
         Route::get('/ikan/{ikan}/edit', [IkanController::class, 'edit'])->name('ikan.edit');   
         Route::get('/tambahproduksi/{tambahproduksi}/edit', [TambahProduksiController::class, 'edit'])->name('tambahproduksi.edit');   
         Route::get('/dataproduksi/{dataproduksi}/edit', [DataProduksiController::class, 'edit'])->name('dataproduksi.edit');
         Route::post('/dataproduksi/store', [DataProduksiController::class, 'store'])->name('dataproduksi.store');
-
-
-            });
 });
+});
+
+        //Export Route
+        Route::get('/exportxlsx-users',[ProduksiController::class,'exportxlsxUsers'])->name('exportxlsx-users');
+        Route::get('/exportpdf-users', [ProduksiController::class, 'downloadPDF'])->name('exportpdf-users');

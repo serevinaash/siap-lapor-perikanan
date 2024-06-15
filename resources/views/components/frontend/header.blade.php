@@ -7,29 +7,28 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Argon Dashboard') }}</title>
-    <!-- Favicon -->
-    <link href="{{ url('/frontend/img/brand/favicon.png') }}" rel="icon" type="image/png">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <!-- Icons -->
-    <link href="{{ url('/frontend/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
-    <link href="{{ url('/frontend/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <!-- Argon CSS -->
-    <link type="text/css" href="{{ url('/frontend/css/argon.css?v=1.0.0') }}" rel="stylesheet">
-    <!-- Extra details for Live View on GitHub Pages -->
-    <link rel="apple-touch-icon" sizes="76x76" href="/frontend/argon/img/apple-icon.png">
+    <meta content="" name="keywords">
 
-    <!-- Fonts and icons -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <!-- Nucleo Icons -->
-    <link href="/frontend/argon/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="/frontend/argon/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="/frontend/argon/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link id="pagestyle" href="/frontend/argon/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <!-- Favicons -->
+    <link href="{{ url('/frontend/lp/img/favicon.png') }}" rel="icon">
+    <link href="{{ url('/frontend/lp/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url('/frontend/lp/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url('/frontend/lp/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url('/frontend/lp/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url('/frontend/lp/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ url('/frontend/lp/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url('/frontend/lp/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+<!-- Main CSS File -->
+<link href="{{ url('/frontend/lp/css/main.css') }}" rel="stylesheet">
+
 
     <script>
   document.addEventListener('DOMContentLoaded', function () {

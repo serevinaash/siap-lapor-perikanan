@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\DataProduksiRequest;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 
 class DataProduksiController extends Controller
 {
@@ -89,4 +90,7 @@ class DataProduksiController extends Controller
 
         return redirect()->route('petugas.dataproduksi.index')->with('success', 'Data produksi berhasil dihapus.');
     }
+
+
+       
 }

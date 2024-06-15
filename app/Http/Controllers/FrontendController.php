@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produksi;
 use App\Models\IkanProduksi;
+use Yajra\DataTables\Facades\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportUser;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
     public function index(Request $request)
     {
-        // Mendapatkan data dari tabel produksi_perikanan dan ikan
+        return view("pages.frontend.index");
+    }
+
+     public function reports()
+    {
         $produksiData = Produksi::with('ikan')->get();
 
         // Mengambil data untuk chart
@@ -36,8 +45,34 @@ class FrontendController extends Controller
         foreach ($produksiBulanan as $data) {
             $monthlyValues[$data->month - 1] = $data->total_produksi;
         }
-
-        // Mengirim data ke view
-        return view("pages.frontend.index", compact('categories', 'values', 'labels', 'monthlyValues'));
+        return view("pages.frontend.reports", compact('categories', 'values', 'labels', 'monthlyValues'));
     }
+
+    public function download()
+    {
+        if (request()->ajax()) {
+            $query = IkanProduksi::where('Status_Produksi', 'selesai');
+
+            return DataTables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                
+                    ';
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('pages.frontend.download');
+    }
+
+    public function team()
+    {
+        return view('pages.frontend.team');
+    }
+
+    public function contact()
+    {
+        return view('pages.frontend.contact');
+    }
+    
 }

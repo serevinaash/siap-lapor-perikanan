@@ -11,6 +11,7 @@ use App\Http\Requests\IkanRequest;
 use App\Http\Requests\ProduksiRequest;
 use app\Http\Request\DataProduksiRequest;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 
 class IkanController extends Controller
 {
@@ -88,5 +89,5 @@ class IkanController extends Controller
 
         return redirect()->route('petugas.ikan.index')->with('success', 'Ikan deleted successfully.');
     }
-    
+  
 }
