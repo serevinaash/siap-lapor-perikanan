@@ -17,26 +17,16 @@
         @if(Auth::user()->roles == "ADMIN")
             <button type="submit" class="btn btn-register text-white" onclick="location.href='{{ route('pages.dashboard.index') }}'">Dashboard Admin</button>
         @endif
-        @if(Auth::user()->roles == "PETUGAS")
-           <button type="submit" class="btn btn-register text-white" onclick="location.href='{{ route('dashboard.index') }}'">Dashboard Petugas</button>
-        @endif
-        <button type="submit" class="btn btn-login text-white" onclick="location.href='{{ route('profile.show') }}'">Profile</button>   
        
-        <form id="logout-form" method="POST" class="btn btn-register text-white" action="{{ route('logout') }}" style="background-color: #28a745;">
-   <button type="submit" class="btn btn-register text-white" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-        {{ __('Log Out') }}
-   </button>
-   @csrf
-</form>
  
 
-    </div>
-@else
-    <button type="submit" class="btn btn-login text-white" onclick="location.href='{{ route('login') }}'">Login</button>
-    <button type="submit" class="btn btn-register text-white" onclick="location.href='{{ route('register') }}'">Register</button>
-@endauth
+              </div>
+          @else
+              <button type="submit" class="btn btn-login text-white" onclick="location.href='{{ route('login') }}'">Login</button>
+              <button type="submit" class="btn btn-register text-white" onclick="location.href='{{ route('register') }}'">Register</button>
+          @endauth
 
-</div>
+          </div>
 
 
 

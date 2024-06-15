@@ -16,9 +16,31 @@
           <li><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profile
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <li><a class="dropdown-item" href="{{ route('profile.show') }}">View Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    @if(Auth::user()->roles == "ADMIN")
+                        <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard Admin</a></li>
+                    @elseif(Auth::user()->roles == "PETUGAS")
+                        <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard Petugas</a></li>
+                    @endif
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
       </nav>
 
       <a class="btn-getstarted" href="{{ route('download') }}">Download</a>
+      
 
     </div>
   </header>
