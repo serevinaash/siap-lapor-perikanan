@@ -12,6 +12,7 @@ use App\Http\Requests\ProduksiRequest;
 use app\Http\Request\DataProduksiRequest;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class IkanController extends Controller
 {
@@ -85,9 +86,34 @@ class IkanController extends Controller
 
     public function destroy(Ikan $ikan)
     {
-        $ikan->delete();
+        // Menggunakan transaksi database untuk operasi penghapusan
+        DB::beginTransaction();
 
-        return redirect()->route('petugas.ikan.index')->with('success', 'Ikan deleted successfully.');
+        try {
+            // Periksa apakah ada produksi terkait dengan ikan ini
+            $produksiCount = Produksi::where('id_ikan', $ikan->ID_Ikan)->count();
+
+            if ($produksiCount > 0) {
+                // Jika ada produksi terkait, Anda harus memutuskan untuk menghapus atau menolak penghapusan ikan
+                // Di sini saya pilih untuk menghapus semua data produksi yang terkait dengan ikan ini
+                Produksi::where('id_ikan', $ikan->ID_Ikan)->delete();
+            }
+
+            // Hapus ikan
+            $ikan->delete();
+
+            // Commit transaksi jika semua operasi berhasil
+            DB::commit();
+
+            return redirect()->route('petugas.ikan.index')
+                ->with('success', 'Ikan berhasil dihapus');
+        } catch (\Exception $e) {
+            // Rollback transaksi jika terjadi kesalahan
+            DB::rollback();
+
+            return redirect()->back()
+                ->with('error', 'Gagal menghapus ikan: ' . $e->getMessage());
+        }
     }
   
 }

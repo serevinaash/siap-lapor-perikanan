@@ -19,7 +19,6 @@
 <div class="container section-title" data-aos="fade-up">
   <span>Our Team<br></span>
   <h2>Our Team</h2>
-  <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
 </div><!-- End Section Title -->
 
 <div class="container">
@@ -32,9 +31,7 @@
         <div class="member-content">
           <h4>Rizki Surya Gani</h4>
           <span>Front-End Developer</span>
-          <p>
-            Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-          </p>
+         
           <div class="social">
             <a href="https://github.com/rizkisg"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.instagram.com/rzkysry_/?hl=en"><i class="bi bi-instagram"></i></a>
@@ -50,9 +47,7 @@
         <div class="member-content">
           <h4>Serevina Sherly Maulida</h4>
           <span>Back-End Developer</span>
-          <p>
-            Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-          </p>
+      
           <div class="social">
             <a href="https://github.com/serevinaash"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.instagram.com/serevinaash/?hl=en"><i class="bi bi-instagram"></i></a>
@@ -68,9 +63,7 @@
         <div class="member-content">
           <h4>Yassar Malik Arassyid</h4>
           <span>Back-End Developer</span>
-          <p>
-            Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-          </p>
+         
           <div class="social">
             <a href="https://www.github.com/yassar2"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.instagram.com/yassararrasyid12/?hl=en"><i class="bi bi-instagram"></i></a>
@@ -86,9 +79,7 @@
         <div class="member-content">
           <h4>Yunisa Dwi Indrayani</h4>
           <span>Back-End Developer</span>
-          <p>
-            Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-          </p>
+        
           <div class="social">
             <a href="https://www.github.com/yunisadwi"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.instagram.com/yunisa_dwi/?hl=en"><i class="bi bi-instagram"></i></a>
@@ -104,9 +95,7 @@
         <div class="member-content">
           <h4>Zulfan Al-Zahwan Putra Ashadi</h4>
           <span>Front-End Developer</span>
-          <p>
-            Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-          </p>
+     
           <div class="social">
             <a href="https://github.com/Zahwan07"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.instagram.com/zah1______/?hl=en"><i class="bi bi-instagram"></i></a>

@@ -71,6 +71,8 @@ Route::middleware(['auth:sanctum', 'verified'])->name("petugas.")->prefix('petug
     Route::get('/', [PetugasController::class, 'index'])->name('index');
     Route::get('/petugas/dashboard', [PetugasController::class, 'dashboard'])->name('petugas.dashboard');
     Route::get('/petugas/index', [PetugasController::class, 'index'])->name('petugas.index');
+    Route::get('/dataproduksi', [PetugasController::class, 'index'])->name('pages.petugas.dataproduksi.index');
+  Route::get('/dataproduksi', [PetugasController::class, 'index'])->name('dataproduksi');
     Route::middleware(["petugas"])->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
         Route::resource('ikan', IkanController::class);

@@ -33,7 +33,7 @@ class ProduksiRequest extends FormRequest
             'Lokasi_Produksi' => 'required|string|max:50',
             'Harga_Ikan' => 'required|numeric',
             'Pengola_Produksi' => 'required|integer',
-            'Status_Produksi' => 'required|string|max:20',
+            'Status_Produksi' => 'required|string|in:proses,selesai|max:20',
             'ID_Ikan' => 'required|interger',
         ];
     }

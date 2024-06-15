@@ -22,8 +22,8 @@
                         @csrf
                         <div class="mb-4">
                       
-                        <input type="number" name="Pengola_Produksi" value="{{ auth()->user()->id }}">
-                        <input type="number" name="ID_Ikan" value="{{ $idIkan }}" required>
+                        <input type="hidden" name="Pengola_Produksi" value="{{ auth()->user()->id }}">
+                        <input type="hidden" name="ID_Ikan" value="{{ $idIkan }}" required>
 
                         
                     
@@ -46,11 +46,14 @@
                             <label for="Harga_Ikan" class="block text-sm font-medium text-gray-700">Harga Ikan</label>
                             <input type="text" name="Harga_Ikan" id="Harga_Ikan" class="mt-1 block w-full" required>
                         </div>
-                        
                         <div class="mb-4">
                             <label for="Status_Produksi" class="block text-sm font-medium text-gray-700">Status Produksi</label>
-                            <input type="text" name="Status_Produksi" id="Status_Produksi" class="mt-1 block w-full" required>
+                            <select name="Status_Produksi" id="Status_Produksi" class="mt-1 block w-full" required>
+                                <option value="proses">Proses</option>
+                                <option value="selesai">Selesai</option>
+                            </select>
                         </div>
+
 
                         <div class="mt-6">
                             <button type="submit" class="px-4 py-2 bg-green-500 hover:bg-green-700 text-white rounded">

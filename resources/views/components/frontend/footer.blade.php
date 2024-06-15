@@ -7,7 +7,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <h1 class="sitename">Siap Lapor</span></h1>
         </a>
-      <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+      <p>Siap Lapor Perikanan: Memudahkan pelaku usaha perikanan dalam pelaporan aktivitas secara efisien dan akurat untuk pengelolaan sumber daya kelautan yang berkelanjutan.</p>
       <div class="social-links d-flex mt-4">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>

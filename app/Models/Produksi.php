@@ -26,6 +26,10 @@ class Produksi extends Model
         'Status_Produksi',
     ];
 
+    // Define constant for valid status options
+    const STATUS_PROSES = 'proses';
+    const STATUS_SELESAI = 'selesai';
+
     public function ikan()
     {
         return $this->belongsTo(Ikan::class, 'ID_Ikan', 'ID_Ikan');
@@ -36,6 +40,32 @@ class Produksi extends Model
     {
         return $this->belongsTo(User::class, 'Pengola_Produksi', 'id');
     }
-    
+
+    // Mutator to ensure Status_Produksi is lowercase
+    public function setStatusProduksiAttribute($value)
+    {
+        $this->attributes['Status_Produksi'] = strtolower($value);
+    }
+
+    // Accessor to capitalize Status_Produksi when retrieving
+    public function getStatusProduksiAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    // Scope to query records with specific status
+    public function scopeStatus($query, $status)
+    {
+        return $query->where('Status_Produksi', strtolower($status));
+    }
+
+    // Validation rule for status attribute
+    public static function statusRules()
+    {
+        return [
+            'Status_Produksi' => 'required|string|in:' . self::STATUS_PROSES . ',' . self::STATUS_SELESAI,
+        ];
+    }
+
     public $timestamps = false;
 }

@@ -11,15 +11,14 @@
         <ul>
         <ul>
           <li><a href="{{ route('home') }}" class="active">Home</a></li>
-          <li><a href="{{ route('reports') }}">Reports</a></li>
-          <li><a href="{{ route('download') }}">Download</a></li>
+          <li><a href="{{ route('reports') }}">Reprort</a></li>
           <li><a href="{{ route('team') }}">Team</a></li>
           <li><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="send-report.html">Send a Report</a>
+      <a class="btn-getstarted" href="{{ route('download') }}">Download</a>
 
     </div>
   </header>

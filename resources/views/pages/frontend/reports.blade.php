@@ -8,7 +8,7 @@
 <div class="page-title" data-aos="fade" style="background-image: url('{{ asset("/frontend/lp/img/page-title-bg.jpeg") }}')">
 <div class="container position-relative">
     <h1>About</h1>
-    <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+    <p>Siap Lapor Perikanan adalah platform inovatif yang memungkinkan para pelaku usaha perikanan untuk melaporkan aktivitas mereka dengan mudah dan akurat. Dengan teknologi terkini, kami menyediakan solusi yang mempermudah pengelolaan data tangkapan dan mempromosikan pengelolaan sumber daya kelautan yang berkelanjutan.</p>
     <nav class="breadcrumbs">
       <ol>
         <li><a href="index.html">Home</a></li>
@@ -24,7 +24,7 @@
         <div class="container section-title" data-aos="fade-up">
           <span>Statistik Produksi Ikan</span>
           <h2>Statistik Produksi Ikan</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+          <p>statistika perbulan</p>
         </div><!-- End Section Title -->
   
   
@@ -77,91 +77,90 @@
     </script>
     <div class="swiper-wrapper">
 
-      <div class="swiper-slide">
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-          <h3>Saul Goodman</h3>
-          <h4>Ceo &amp; Founder</h4>
-          <div class="stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-          </div>
-          <p>
-            <i class="bi bi-quote quote-icon-left"></i>
-            <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-            <i class="bi bi-quote quote-icon-right"></i>
-          </p>
-        </div>
-      </div><!-- End testimonial item -->
-
-      <div class="swiper-slide">
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-          <h3>Sara Wilsson</h3>
-          <h4>Designer</h4>
-          <div class="stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-          </div>
-          <p>
-            <i class="bi bi-quote quote-icon-left"></i>
-            <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-            <i class="bi bi-quote quote-icon-right"></i>
-          </p>
-        </div>
-      </div><!-- End testimonial item -->
-
-      <div class="swiper-slide">
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-          <h3>Jena Karlis</h3>
-          <h4>Store Owner</h4>
-          <div class="stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-          </div>
-          <p>
-            <i class="bi bi-quote quote-icon-left"></i>
-            <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-            <i class="bi bi-quote quote-icon-right"></i>
-          </p>
-        </div>
-      </div><!-- End testimonial item -->
-
-      <div class="swiper-slide">
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-          <h3>Matt Brandon</h3>
-          <h4>Freelancer</h4>
-          <div class="stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-          </div>
-          <p>
-            <i class="bi bi-quote quote-icon-left"></i>
-            <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-            <i class="bi bi-quote quote-icon-right"></i>
-          </p>
-        </div>
-      </div><!-- End testimonial item -->
-
-      <div class="swiper-slide">
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-          <h3>John Larson</h3>
-          <h4>Entrepreneur</h4>
-          <div class="stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-          </div>
-          <p>
-            <i class="bi bi-quote quote-icon-left"></i>
-            <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-            <i class="bi bi-quote quote-icon-right"></i>
-          </p>
-        </div>
-      </div><!-- End testimonial item -->
-
+<div class="swiper-slide">
+  <div class="testimonial-item">
+    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+    <h3>Saul Goodman</h3>
+    <h4>CEO & Founder</h4>
+    <div class="stars">
+      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
     </div>
-    <div class="swiper-pagination"></div>
+    <p>
+      <i class="bi bi-quote quote-icon-left"></i>
+      <span>Siap Lapor Perikanan adalah solusi yang luar biasa! Platform ini tidak hanya memudahkan kami dalam melaporkan aktivitas perikanan, tetapi juga meningkatkan efisiensi operasional kami secara signifikan.</span>
+      <i class="bi bi-quote quote-icon-right"></i>
+    </p>
   </div>
+</div><!-- End testimonial item -->
+
+<div class="swiper-slide">
+  <div class="testimonial-item">
+    <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+    <h3>Sara Wilsson</h3>
+    <h4>Designer</h4>
+    <div class="stars">
+      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+    </div>
+    <p>
+      <i class="bi bi-quote quote-icon-left"></i>
+      <span>Siap Lapor Perikanan telah memberikan kami kemudahan yang luar biasa dalam melacak dan melaporkan data tangkapan dengan akurat. Saya sangat merekomendasikan platform ini!</span>
+      <i class="bi bi-quote quote-icon-right"></i>
+    </p>
+  </div>
+</div><!-- End testimonial item -->
+
+<div class="swiper-slide">
+  <div class="testimonial-item">
+    <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+    <h3>Jena Karlis</h3>
+    <h4>Store Owner</h4>
+    <div class="stars">
+      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+    </div>
+    <p>
+      <i class="bi bi-quote quote-icon-left"></i>
+      <span>Siap Lapor Perikanan telah memberikan kami alat yang sangat berguna untuk mengelola operasi perikanan kami. Sangat terkesan dengan kemudahan penggunaannya!</span>
+      <i class="bi bi-quote quote-icon-right"></i>
+    </p>
+  </div>
+</div><!-- End testimonial item -->
+
+<div class="swiper-slide">
+  <div class="testimonial-item">
+    <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+    <h3>Matt Brandon</h3>
+    <h4>Freelancer</h4>
+    <div class="stars">
+      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+    </div>
+    <p>
+      <i class="bi bi-quote quote-icon-left"></i>
+      <span>Siap Lapor Perikanan sangat membantu saya dalam mengelola dan melaporkan data perikanan dengan cepat dan efisien. Sangat direkomendasikan untuk para profesional perikanan!</span>
+      <i class="bi bi-quote quote-icon-right"></i>
+    </p>
+  </div>
+</div><!-- End testimonial item -->
+
+<div class="swiper-slide">
+  <div class="testimonial-item">
+    <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+    <h3>John Larson</h3>
+    <h4>Entrepreneur</h4>
+    <div class="stars">
+      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+    </div>
+    <p>
+      <i class="bi bi-quote quote-icon-left"></i>
+      <span>Siap Lapor Perikanan adalah solusi yang sangat diperlukan dalam industri perikanan modern. Saya sangat puas dengan kemudahan dan kehandalannya!</span>
+      <i class="bi bi-quote quote-icon-right"></i>
+    </p>
+  </div>
+</div><!-- End testimonial item -->
 
 </div>
+<div class="swiper-pagination"></div>
+</div>
+
 
 </section><!-- /Testimonials Section -->
 <section id="faq" class="faq section">
@@ -169,7 +168,7 @@
       <div class="container section-title" data-aos="fade-up">
         <span>Kategori Ikan</span>
         <h2>Kategori Ikan</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Kategori Ikan Dan Jumlah Ikan</p>
       </div><!-- End Section Title -->
 
                     <div style="width: 600px; margin: auto; padding: 50px;">
