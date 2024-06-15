@@ -18,6 +18,7 @@ use App\Http\Controllers\TambahProduksiController;
 */
 
 Route::get('/', [FrontendController::class, "index"])->name("index");
+Route::get('/home', [FrontendController::class, 'index'])->name('index');
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/reports', [FrontendController::class, 'reports'])->name('reports');
 Route::get('/download', [FrontendController::class, 'download'])->name('download');

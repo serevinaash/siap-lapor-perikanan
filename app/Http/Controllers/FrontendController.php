@@ -16,16 +16,16 @@ class FrontendController extends Controller
     public function index(Request $request)
     {
         $totalJumlahProduksi = IkanProduksi::sum('Jumlah_Produksi');
-         $produksiProses = IkanProduksi::where('Status_Produksi', 'proses')->count();
-         $produksiSelesai = IkanProduksi::where('Status_Produksi', 'selesai')->count();   
-         $totalProduksi = $produksiProses + $produksiSelesai;
+        $produksiProses = Produksi::where('Status_Produksi', 'proses')->count();
+        $produksiSelesai = Produksi::where('Status_Produksi', 'selesai')->count();
+        $totalProduksi = $produksiProses + $produksiSelesai;
        
          // Kirim data ke view
          return view('pages.frontend.index', [
             'totalJumlahProduksi' => $totalJumlahProduksi,
-             'produksiProses' => $produksiProses,
-             'produksiSelesai' => $produksiSelesai,
-             'totalProduksi' => $totalProduksi,
+            'produksiProses' => $produksiProses,
+            'produksiSelesai' => $produksiSelesai,
+            'totalProduksi' => $totalProduksi,
          ]);
     }
 

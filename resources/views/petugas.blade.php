@@ -17,7 +17,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Total perikanan</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ $totalProduksi }} <!-- Blade variable -->
+                                        {{ $totalJumlahProduksi }} <!-- Blade variable -->
                                     </h5>
                                 </div>
                             </div>

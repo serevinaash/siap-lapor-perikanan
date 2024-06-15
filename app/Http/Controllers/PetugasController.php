@@ -17,10 +17,11 @@ class PetugasController extends Controller
             $produksiData = Produksi::with('ikan')->get();
 
             // Calculate total counts
-            $totalProduksi = Produksi::sum('Jumlah_Produksi');
+            $totalJumlahProduksi = Produksi::sum('Jumlah_Produksi');
             $produksiProses = Produksi::where('Status_Produksi', 'proses')->count();
             $produksiSelesai = Produksi::where('Status_Produksi', 'selesai')->count();
-
+            $totalProduksi = $produksiProses + $produksiSelesai;
+      
             // Fetch data for chart
             $categories = [];
             $values = [];
@@ -46,7 +47,7 @@ class PetugasController extends Controller
             }
 
             // Pass data to the view
-            return view("petugas", compact('categories', 'values', 'labels', 'monthlyValues', 'totalProduksi', 'produksiProses', 'produksiSelesai'));
+            return view("petugas", compact('categories', 'values', 'labels', 'monthlyValues', 'totalProduksi', 'produksiProses', 'produksiSelesai','totalJumlahProduksi'));
         }
 
         return redirect("/");
