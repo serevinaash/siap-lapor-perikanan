@@ -23,8 +23,9 @@
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                     <li><a class="dropdown-item" href="{{ route('profile.show') }}">View Profile</a></li>
                     <li><hr class="dropdown-divider"></li>
+                    @auth 
                     @if(Auth::user()->roles == "ADMIN")
-                        <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard Admin</a></li>
+                        <li><a class="dropdown-item" href="{{ route('pages.dashboard.index') }}">Dashboard Admin</a></li>
                     @elseif(Auth::user()->roles == "PETUGAS")
                         <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard Petugas</a></li>
                     @endif
@@ -36,6 +37,8 @@
                         </form>
                     </li>
                 </ul>
+                        @endauth
+
             </div>
       </nav>
 
